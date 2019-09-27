@@ -1,0 +1,31 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2>Lista de Filmes</h2>
+  </div>
+  <div class="panel-body">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>Título</th>
+        <th>Classificação</th>
+        <th>Genero</th>
+        <th>Ações</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let filme of filmes | async">
+        <td>{{filme.titulo}}</td>
+        <td>{{filme.genero}}</td>
+        <td>{{filme.classificacao}}</td>
+        <td>
+          <button class="btn btn-info">Update</button>
+          <button class="btn btn-danger">Delete</button>
+
+
+<!--          <button (click)="employeeDetails(employee.id)" class="btn btn-info" style="margin-left: 10px">Details</button>-->
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
