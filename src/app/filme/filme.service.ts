@@ -8,7 +8,7 @@ import {Filme} from '../filme';
 })
 export class FilmeService {
 
-  private baseUrl = 'http://localhost:8080/filme/listar-filmes';
+  private baseUrl = 'http://localhost:8080/filme';
 
   constructor(private http: HttpClient ) { }
 
@@ -17,12 +17,12 @@ export class FilmeService {
   }
 
   getFilmesList(): Observable<any> {
-    return this.http.get(`${this.baseUrl}`);
+    return this.http.get('http://localhost:8080/filme/listar-filmes');
   }
 
-
-  deleteFilme(id: number) {
-
+  deleteFilme(id: number): Observable<any> {
+    return this.http.delete(`${this.baseUrl}/del-filme/${id}`,
+      {responseType: 'text'});
   }
 
   saveFilme(filme: Filme) {
